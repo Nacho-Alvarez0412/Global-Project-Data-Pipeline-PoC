@@ -39,10 +39,11 @@ if __name__ == '__main__':
     # Create Admin client
     admin = AdminClient(config)
     topics = ['Raw_Transactions','Classified_Transactions']
-    # Create topic if it doesn't exist
     #delete_topics(admin,topics)
     for topic in topics:
         if not topic_exists(admin, topic):
             create_topic(admin, topic)
+    # Create topic if it doesn't exist
+    
     # Print Existing Topics
     print(admin.list_topics().topics.values())

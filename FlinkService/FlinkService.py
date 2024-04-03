@@ -10,17 +10,17 @@ consumer = TransactionConsumer()
 
 
 
-@app.route("/spark/api/stop",methods=['GET'])
+@app.route("/flink/api/stop",methods=['GET'])
 def stop_consumption():
     consumer.stop_consumption()
-    return f'Daemon stopped consuming transactions',200
+    return 'Daemon stopped consuming transactions',200
 
-@app.route("/spark/api/start",methods=['GET'])
+@app.route("/flink/api/start",methods=['GET'])
 def start_consumption():
     if(consumer.begin_consumption()):
-        return f'Daemon resume consuming transactions',200
+        return 'Daemon resume consuming transactions',200
     else:
-        return f'Daemon is already running',200
+        return 'Daemon is already running',200
 
 
 if __name__ ==  "__main__":
