@@ -35,7 +35,7 @@ def verify_transaction():
         total_time = end_time - start_time
         print(f'Elapsed time for transaction id: {transaction["transactionId"]} was {round(total_time,2)} seconds')
         if(transaction['approved']):
-            return f'Transaction {transaction} approved',200
+            return f'Transaction {transaction["transactionId"]} approved',200
         else:
             return 'Transaction declined',401
     else: 

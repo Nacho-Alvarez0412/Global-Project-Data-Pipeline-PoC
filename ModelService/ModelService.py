@@ -7,9 +7,7 @@ from ModelHandler import ModelHandler
 app = Flask(__name__)
 api = Api(app)
 producer = TransactionProducer()
-model_handler = ModelHandler()
-
-
+model_handler = ModelHandler('RandomForest.pkl')
 
 @app.route("/model/classify",methods=['POST'])
 def classify_transaction():

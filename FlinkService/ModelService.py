@@ -1,12 +1,11 @@
 import requests
-import json
 
 url = "http://127.0.0.1:5002"
 
-def postTransaction(transaction):
-    response = requests.post(url=url+"/model/classify",json=transaction,headers={"Content-Type": "application/json"})
+def postTransaction(id,transaction):
+    response = requests.post(url=url+"/model/classify",json={"transactionId":id,"transaction":transaction.tolist()},headers={"Content-Type": "application/json"})
     if response.status_code == 200:
-        print(f"Success! transaction id:{transaction['transactionId']} sent successfully.")
+        print(f"Success! transaction id: {transaction[0]} sent successfully.")
     else:
         print(f"Error: {response.status_code}")
         # Access the error message if available
